@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cafeteria Maragato</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">
+        <span class="logo-icon">☕</span>
+        <div>
+            <h1>Cafeteria Maragato</h1>
+            <p>O sabor que transforma seu dia</p>
+        </div>
+    </div>
+
+    <span class="status">
+        <span class="status-dot"></span>
+        Sistema conectado
+    </span>
+</header>
+
+<main class="container">
+
+    <section class="welcome">
+        <div>
+            <span class="eyebrow">GESTÃO DA CAFETERIA</span>
+            <h2>Gerencie seus cafés</h2>
+            <p>Cadastre, consulte, atualize e organize seus produtos.</p>
+        </div>
+        <div class="coffee-decoration">☕</div>
+    </section>
+
+    <section class="dashboard">
+
+        <div class="stat-card">
+            <span>Total de cafés cadastrados</span>
+            <strong id="totalCafes">0</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Banco de dados</span>
+            <strong class="database-status">PostgreSQL</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>Backend</span>
+            <strong class="backend-status">Spring Boot</strong>
+        </div>
+
+    </section>
+
+    <section class="content-grid">
+
+        <div class="panel form-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <span class="eyebrow">PRODUTOS</span>
+                    <h2 id="formTitle">Cadastrar café</h2>
+                </div>
+                <span class="heading-icon">☕</span>
+            </div>
+
+            <form id="cafeForm">
+
+                <input type="hidden" id="cafeId">
+
+                <div class="form-group">
+                    <label for="nomeProduto">Nome do produto</label>
+                    <input
+                            type="text"
+                            id="nomeProduto"
+                            placeholder="Ex.: Café Maragato"
+                            required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="tamanhoProduto">Tamanho</label>
+                    <select id="tamanhoProduto" required>
+                        <option value="">Selecione o tamanho</option>
+                        <option value="Pequeno">Pequeno</option>
+                        <option value="Médio">Médio</option>
+                        <option value="Grande">Grande</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipoTorra">Tipo de torra</label>
+                    <select id="tipoTorra" required>
+                        <option value="">Selecione a torra</option>
+                        <option value="Clara">Clara</option>
+                        <option value="Média">Média</option>
+                        <option value="Escura">Escura</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="preco">Preço (R$)</label>
+                    <input
+                            type="number"
+                            id="preco"
+                            placeholder="0,00"
+                            min="0.01"
+                            step="0.01"
+                            required
+                    >
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" id="btnSalvar" class="btn-primary">
+                        Cadastrar café
+                    </button>
+
+                    <button
+                            type="button"
+                            id="btnLimpar"
+                            class="btn-secondary"
+                    >
+                        Limpar
+                    </button>
+                </div>
+
+            </form>
+
+            <div id="mensagem" class="message" role="status"></div>
+
+        </div>
+
+        <div class="panel list-panel">
+
+            <div class="panel-heading">
+                <div>
+                    <span class="eyebrow">GERENCIAMENTO</span>
+                    <h2>Produtos cadastrados</h2>
+                </div>
+
+                <button id="btnAtualizar" class="btn-refresh" type="button">
+                    ↻ Atualizar
+                </button>
+            </div>
+
+            <div class="search-area">
+                <input
+                        type="number"
+                        id="buscarId"
+                        placeholder="Buscar produto pelo ID"
+                        min="1"
+                >
+
+                <button id="btnBuscar" type="button" class="btn-search">
+                    Buscar
+                </button>
+
+                <button id="btnListar" type="button" class="btn-secondary">
+                    Todos
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Produto</th>
+                        <th>Tamanho</th>
+                        <th>Torra</th>
+                        <th>Preço</th>
+                        <th>Ações</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="tabelaCafes">
+                    <tr>
+                        <td colspan="6" class="empty">
+                            Carregando produtos...
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Cafeteria Maragato | Sistema desenvolvido com Java e Spring Boot.</p>
+    </footer>
+
+</main>
+
+<script src="app.js"></script>
+
+</body>
+</html>

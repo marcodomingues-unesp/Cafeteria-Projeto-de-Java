@@ -1,9 +1,11 @@
+
 /* =========================================================
    BASE
    ========================================================= */
 
 .root {
     -fx-font-family: "Calibri";
+    -fx-font-size: 13px;
     -fx-background-color: #F5EDE2;
 }
 
@@ -19,10 +21,9 @@
 .header {
     -fx-background-color: #4A2921;
     -fx-padding: 18 25;
-
     -fx-effect: dropshadow(
             gaussian,
-            rgba(40, 20, 15, 0.25),
+            rgba(40, 20, 15, 0.22),
             12,
             0.15,
             0,
@@ -38,7 +39,6 @@
 }
 
 .logo-subtitulo {
-    -fx-font-family: "Calibri";
     -fx-font-size: 12px;
     -fx-text-fill: #DCCBBB;
 }
@@ -57,18 +57,14 @@
 .painel-pedido,
 .painel-pedidos {
     -fx-background-color: #FFFDF9;
-
     -fx-background-radius: 18;
-    -fx-border-radius: 18;
-
     -fx-border-color: #E5D5C2;
     -fx-border-width: 1;
-
+    -fx-border-radius: 18;
     -fx-padding: 20;
-
     -fx-effect: dropshadow(
             gaussian,
-            rgba(70, 40, 30, 0.10),
+            rgba(70, 40, 30, 0.09),
             12,
             0.12,
             0,
@@ -78,31 +74,22 @@
 
 
 /* =========================================================
-   TÍTULOS
+   TÍTULOS E LABELS
    ========================================================= */
 
 .titulo-painel {
-    -fx-font-family: "Calibri";
     -fx-font-size: 21px;
     -fx-font-weight: bold;
     -fx-text-fill: #4A2921;
 }
 
 .label-secao {
-    -fx-font-family: "Calibri";
     -fx-font-size: 11px;
     -fx-font-weight: bold;
     -fx-text-fill: #8A6757;
 }
 
-
-/* =========================================================
-   LABELS
-   ========================================================= */
-
 .label {
-    -fx-font-family: "Calibri";
-    -fx-font-size: 13px;
     -fx-text-fill: #59372D;
 }
 
@@ -112,37 +99,37 @@
    ========================================================= */
 
 .text-field {
-    -fx-font-family: "Calibri";
     -fx-font-size: 14px;
-
     -fx-background-color: #FFFDF9;
     -fx-text-fill: #4A3028;
-
+    -fx-prompt-text-fill: #B7A092;
     -fx-border-color: #DCCBBB;
     -fx-border-width: 1;
-
     -fx-background-radius: 12;
     -fx-border-radius: 12;
-
     -fx-padding: 10 13;
+}
+
+.text-field:hover {
+    -fx-border-color: #B9967D;
 }
 
 .text-field:focused {
     -fx-border-color: #704334;
-    -fx-border-width: 2;
-
+    -fx-border-width: 1.5;
     -fx-effect: dropshadow(
             gaussian,
-            rgba(112, 67, 52, 0.18),
-            8,
+            rgba(112, 67, 52, 0.16),
+            7,
             0.15,
             0,
             2
     );
 }
 
-.text-field .prompt-text {
-    -fx-fill: #B7A092;
+.text-field:disabled {
+    -fx-background-color: #F1E8DE;
+    -fx-opacity: 0.75;
 }
 
 
@@ -151,33 +138,28 @@
    ========================================================= */
 
 .combo-box {
-    -fx-font-family: "Calibri";
     -fx-font-size: 14px;
-
     -fx-background-color: #FFFDF9;
-    -fx-text-fill: #4A3028;
-
     -fx-border-color: #DCCBBB;
     -fx-border-width: 1;
-
     -fx-background-radius: 12;
     -fx-border-radius: 12;
-
     -fx-padding: 4 8;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4A3028;
+    -fx-padding: 6 8;
+}
+
+.combo-box:hover {
+    -fx-border-color: #B9967D;
 }
 
 .combo-box:focused {
     -fx-border-color: #704334;
-    -fx-border-width: 2;
-
-    -fx-effect: dropshadow(
-            gaussian,
-            rgba(112, 67, 52, 0.18),
-            8,
-            0.15,
-            0,
-            2
-    );
+    -fx-border-width: 1.5;
 }
 
 .combo-box .arrow {
@@ -187,13 +169,11 @@
 .combo-box-popup .list-view {
     -fx-background-color: #FFFDF9;
     -fx-border-color: #DCCBBB;
-
-    -fx-background-radius: 10;
-    -fx-border-radius: 10;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
 }
 
 .combo-box-popup .list-cell {
-    -fx-font-family: "Calibri";
     -fx-background-color: #FFFDF9;
     -fx-text-fill: #4A3028;
     -fx-padding: 9 12;
@@ -203,40 +183,44 @@
     -fx-background-color: #F1E1D0;
 }
 
-.combo-box-popup .list-cell:selected {
+.combo-box-popup .list-cell:filled:selected {
     -fx-background-color: #704334;
-    -fx-text-fill: white;
+    -fx-text-fill: #FFFFFF;
 }
 
 
 /* =========================================================
-   BOTÕES
+   BOTÕES GERAIS
    ========================================================= */
 
 .button {
-    -fx-font-family: "Calibri";
     -fx-font-size: 13px;
     -fx-font-weight: bold;
-
-    -fx-text-fill: white;
-
+    -fx-text-fill: #FFFFFF;
     -fx-background-color: #704334;
     -fx-background-radius: 11;
-
     -fx-padding: 10 18;
-
     -fx-cursor: hand;
+    -fx-focus-traversable: true;
 }
 
 .button:hover {
     -fx-background-color: #5E382D;
 }
 
+.button:focused {
+    -fx-border-color: #DCCBBB;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 11;
+}
+
 .button:pressed {
     -fx-background-color: #4A2921;
+}
 
-    -fx-scale-x: 0.98;
-    -fx-scale-y: 0.98;
+.button:disabled {
+    -fx-opacity: 0.45;
+    -fx-cursor: default;
 }
 
 
@@ -316,14 +300,14 @@
 
 
 /* =========================================================
-   MENSAGEM
+   MENSAGENS
    ========================================================= */
 
 .mensagem {
-    -fx-font-family: "Calibri";
     -fx-font-size: 13px;
     -fx-font-weight: bold;
     -fx-text-fill: #A6322A;
+    -fx-padding: 2 0;
 }
 
 
@@ -338,14 +322,12 @@
 }
 
 .contador-titulo {
-    -fx-font-family: "Calibri";
     -fx-font-size: 9px;
     -fx-font-weight: bold;
     -fx-text-fill: #8A6757;
 }
 
 .contador-status {
-    -fx-font-family: "Calibri";
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #704334;
@@ -359,14 +341,19 @@
 .tabela-pedidos,
 .table-view {
     -fx-font-family: "Calibri";
-
+    -fx-font-size: 13px;
     -fx-background-color: #FFFDF9;
-
+    -fx-control-inner-background: #FFFDF9;
+    -fx-control-inner-background-alt: #FAF3EA;
     -fx-border-color: #DCCBBB;
     -fx-border-radius: 14;
     -fx-background-radius: 14;
-
     -fx-table-cell-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.table-view:focused {
+    -fx-border-color: #B9967D;
 }
 
 
@@ -376,19 +363,24 @@
 
 .table-view .column-header-background {
     -fx-background-color: #4A2921;
-    -fx-background-radius: 14 14 0 0;
+    -fx-background-radius: 13 13 0 0;
 }
 
 .table-view .column-header {
     -fx-background-color: transparent;
     -fx-size: 45px;
+    -fx-border-color: transparent;
 }
 
 .table-view .column-header .label {
-    -fx-font-family: "Calibri";
     -fx-font-size: 12px;
     -fx-font-weight: bold;
     -fx-text-fill: #FFF9F1;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-view .filler {
+    -fx-background-color: #4A2921;
 }
 
 
@@ -399,6 +391,7 @@
 .table-row-cell {
     -fx-background-color: #FFFDF9;
     -fx-cell-size: 44px;
+    -fx-border-color: transparent;
 }
 
 .table-row-cell:odd {
@@ -414,19 +407,25 @@
 }
 
 .table-row-cell:selected .table-cell {
-    -fx-text-fill: white;
+    -fx-text-fill: #FFFFFF;
+}
+
+.table-row-cell:empty {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }
 
 
 /* =========================================================
-   CÉLULAS
+   CÉLULAS DA TABELA
    ========================================================= */
 
 .table-cell {
-    -fx-font-family: "Calibri";
     -fx-font-size: 13px;
     -fx-text-fill: #50342B;
+    -fx-alignment: CENTER_LEFT;
     -fx-padding: 8 12;
+    -fx-border-color: transparent;
 }
 
 
@@ -458,13 +457,11 @@
 .list-view {
     -fx-background-color: #FFFDF9;
     -fx-border-color: #DCCBBB;
-
     -fx-background-radius: 10;
     -fx-border-radius: 10;
 }
 
 .list-cell {
-    -fx-font-family: "Calibri";
     -fx-background-color: #FFFDF9;
     -fx-text-fill: #4A3028;
     -fx-padding: 9 12;
@@ -476,16 +473,17 @@
 
 .list-cell:selected {
     -fx-background-color: #704334;
-    -fx-text-fill: white;
+    -fx-text-fill: #FFFFFF;
 }
 
 
 /* =========================================================
-   BARRA DE ROLAGEM
+   BARRAS DE ROLAGEM
    ========================================================= */
 
 .scroll-bar {
     -fx-background-color: transparent;
+    -fx-padding: 2;
 }
 
 .scroll-bar .track {
@@ -498,6 +496,17 @@
 }
 
 .scroll-bar .thumb:hover {
+    -fx-background-color: #806050;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 3;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
     -fx-background-color: #806050;
 }
 
@@ -518,6 +527,7 @@
 
 .tooltip {
     -fx-font-family: "Calibri";
+    -fx-font-size: 12px;
     -fx-background-color: #4A2921;
     -fx-text-fill: #FFF9F1;
     -fx-background-radius: 8;
@@ -526,9 +536,12 @@
 
 
 /* =========================================================
-   DESABILITADOS
+   FOCO DE TECLADO
    ========================================================= */
 
-.button:disabled {
-    -fx-opacity: 0.45;
+.combo-box:focused,
+.text-field:focused,
+.table-view:focused {
+    -fx-focus-color: #947465;
+    -fx-faint-focus-color: rgba(148, 116, 101, 0.15);
 }
