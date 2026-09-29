@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane
+        prefHeight="720.0"
+        prefWidth="1100.0"
+        stylesheets="@style.css"
+        xmlns="http://javafx.com/javafx/27"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="com.projeto_java.cafeteria.controller.CafeController">
+
+    <VBox
+            styleClass="pagina"
+            AnchorPane.bottomAnchor="0.0"
+            AnchorPane.leftAnchor="0.0"
+            AnchorPane.rightAnchor="0.0"
+            AnchorPane.topAnchor="0.0">
+
+        <!-- CABEÇALHO -->
+        <HBox
+                alignment="CENTER_LEFT"
+                prefHeight="77.0"
+                spacing="20.0"
+                styleClass="header">
+
+            <padding>
+                <Insets
+                        bottom="20.0"
+                        left="30.0"
+                        right="30.0"
+                        top="20.0"/>
+            </padding>
+
+            <!-- MARCA -->
+            <VBox
+                    spacing="2.0"
+                    HBox.hgrow="ALWAYS">
+
+                <Label
+                        styleClass="logo"
+                        text="☕ CAFETERIA MARAGATO"/>
+
+                <Label
+                        styleClass="logo-subtitulo"
+                        text="Atendimento de pedido"/>
+
+            </VBox>
+
+            <!-- STATUS -->
+            <VBox
+                    alignment="CENTER_RIGHT"
+                    spacing="3.0">
+
+                <Label
+                        styleClass="status-online"/>
+
+            </VBox>
+
+        </HBox>
+
+        <!-- ÁREA PRINCIPAL -->
+        <HBox
+                prefHeight="644.0"
+                spacing="22.0"
+                VBox.vgrow="ALWAYS">
+
+            <padding>
+                <Insets
+                        bottom="28.0"
+                        left="28.0"
+                        right="28.0"
+                        top="22.0"/>
+            </padding>
+
+            <!-- PAINEL ESQUERDO -->
+            <VBox
+                    minWidth="360.0"
+                    prefWidth="390.0"
+                    spacing="18.0"
+                    styleClass="painel-pedido">
+
+                <VBox spacing="4.0">
+
+                    <Label
+                            styleClass="titulo-painel"
+                            text="Novo pedido"/>
+
+                </VBox>
+
+                <Separator/>
+
+                <!-- PRODUTO -->
+                <VBox spacing="8.0">
+
+                    <Label
+                            styleClass="label-secao"
+                            text="PRODUTO"/>
+
+                    <TextField
+                            fx:id="txtNome"
+                            promptText="Ex: Cappuccino"/>
+
+                </VBox>
+
+                <!-- TAMANHO E TORRA -->
+                <HBox spacing="12.0">
+
+                    <!-- TAMANHO -->
+                    <VBox
+                            spacing="8.0"
+                            HBox.hgrow="ALWAYS">
+
+                        <Label
+                                styleClass="label-secao"
+                                text="TAMANHO"/>
+
+                        <ComboBox
+                                fx:id="comboTamanho"
+                                maxWidth="1.7976931348623157E308"
+                                promptText="Selecione"/>
+
+                    </VBox>
+
+                    <!-- TORRA -->
+                    <VBox
+                            spacing="8.0"
+                            HBox.hgrow="ALWAYS">
+
+                        <Label
+                                styleClass="label-secao"
+                                text="TORRA"/>
+
+                        <ComboBox
+                                fx:id="comboTorra"
+                                maxWidth="1.7976931348623157E308"
+                                promptText="Selecione"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <!-- PREÇO -->
+                <VBox spacing="8.0">
+
+                    <Label
+                            styleClass="label-secao"
+                            text="PREÇO"/>
+
+                    <TextField
+                            fx:id="txtPreco"
+                            promptText="R$ 0,00"/>
+
+                </VBox>
+
+                <!-- ESPAÇO FLEXÍVEL -->
+                <Region VBox.vgrow="ALWAYS"/>
+
+                <!-- MENSAGEM -->
+                <Label
+                        fx:id="lblMensagem"
+                        styleClass="mensagem"
+                        wrapText="true"/>
+
+                <!-- BOTÃO PRINCIPAL -->
+                <Button
+                        fx:id="btnNovo"
+                        maxWidth="1.7976931348623157E308"
+                        onAction="#comprarCafe"
+                        styleClass="botao-principal"
+                        text="ADICIONAR PEDIDO"/>
+
+                <!-- BOTÕES DE ALTERAÇÃO E CANCELAMENTO -->
+                <HBox spacing="10.0">
+
+                    <Button
+                            fx:id="btnAlterar"
+                            maxWidth="1.7976931348623157E308"
+                            onAction="#alterarPedido"
+                            text="Alterar"
+                            HBox.hgrow="ALWAYS"/>
+
+                    <Button
+                            fx:id="btnCancelar"
+                            maxWidth="1.7976931348623157E308"
+                            onAction="#cancelarPedido"
+                            text="Cancelar"
+                            HBox.hgrow="ALWAYS"/>
+
+                </HBox>
+
+                <!-- BOTÕES DE LIMPEZA E EXCLUSÃO -->
+                <HBox spacing="10.0">
+
+                    <Button
+                            fx:id="btnLimpar"
+                            maxWidth="1.7976931348623157E308"
+                            onAction="#limparFormulario"
+                            text="Limpar"
+                            HBox.hgrow="ALWAYS"/>
+
+                    <Button
+                            fx:id="btnExcluir"
+                            maxWidth="1.7976931348623157E308"
+                            onAction="#excluirTudo"
+                            text="Excluir tudo"
+                            HBox.hgrow="ALWAYS"/>
+
+                </HBox>
+
+            </VBox>
+
+            <!-- PAINEL DIREITO -->
+            <VBox
+                    prefHeight="601.0"
+                    prefWidth="840.0"
+                    spacing="16.0"
+                    styleClass="painel-pedidos"
+                    HBox.hgrow="ALWAYS">
+
+                <!-- CABEÇALHO DA LISTA -->
+                <HBox alignment="CENTER_LEFT">
+
+                    <VBox
+                            spacing="3.0"
+                            HBox.hgrow="ALWAYS">
+
+                        <Label
+                                styleClass="titulo-painel"
+                                text="Pedidos">
+
+                            <font>
+                                <Font size="16.0"/>
+                            </font>
+
+                        </Label>
+
+                    </VBox>
+
+                    <!-- CONTADOR -->
+                    <VBox
+                            alignment="CENTER_RIGHT"
+                            styleClass="contador-pedidos">
+
+                        <Label
+                                styleClass="contador-titulo"
+                                text="COMANDAS"/>
+
+                        <Label
+                                styleClass="contador-status"
+                                text="●"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <Separator/>
+
+                <!-- TABELA DE PEDIDOS -->
+                <TableView
+                        fx:id="tablePedidos"
+                        styleClass="tabela-pedidos"
+                        VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn
+                                fx:id="colId"
+                                prefWidth="116.0"
+                                text="Comanda"/>
+
+                        <TableColumn
+                                fx:id="colNome"
+                                minWidth="180.0"
+                                prefWidth="222.0"
+                                text="Produto"/>
+
+                        <TableColumn
+                                fx:id="colTamanho"
+                                prefWidth="79.0"
+                                text="Tamanho"/>
+
+                        <TableColumn
+                                fx:id="colTorra"
+                                prefWidth="203.0"
+                                text="Torra"/>
+
+                        <TableColumn
+                                fx:id="colPreco"
+                                minWidth="94.0"
+                                prefWidth="190.0"
+                                text="Preço"/>
+
+                    </columns>
+
+                </TableView>
+
+                <!-- RODAPÉ DA LISTA -->
+                <HBox
+                        alignment="CENTER_LEFT"
+                        spacing="10.0"
+                        styleClass="rodape-pedidos">
+
+                    <Label
+                            styleClass="icone-cafe"
+                            text="☕"/>
+
+                    <VBox
+                            spacing="2.0"
+                            HBox.hgrow="ALWAYS">
+
+                        <Label
+                                prefHeight="41.0"
+                                prefWidth="186.0"
+                                styleClass="rodape-subtitulo"
+                                text="Aproveite seu café. Volte sempre!"/>
+
+                    </VBox>
+
+                </HBox>
+
+            </VBox>
+
+        </HBox>
+
+    </VBox>
+
+</AnchorPane>
